@@ -15,8 +15,8 @@ export const useFetch = () => {
         try {
             let resp = null;
             if(!todo) {
-                console.log(url);
-                console.log(method);
+                //console.log(url);
+                //console.log(method);
                 resp = await fetch(url, {
                     method: method
                 });

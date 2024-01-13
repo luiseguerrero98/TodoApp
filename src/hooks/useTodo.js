@@ -22,10 +22,35 @@ export const useTodo = () => {
         });
     }
     
+    const handleToggleTodo = (id) => {
+        dispatchTodo({
+            type: '[TODO] Toggle Todo',
+            payload: id
+        });
+    }
+
+    const deleteTodos = async () => {
+        const method = 'DELETE';
+        //console.log('hizo click en el boton');
+        const deletedTodos = await Promise.all(
+            todos.map((todo) => {
+                if(todo.checked) {
+                    return getFetch(`${url}${todo.id}`, method);
+                }
+            })
+        );
+
+        dispatchTodo({
+            type: '[TODO] Delete Todos',
+            payload: deletedTodos
+        });
+    }
     
      
 
   return {
-    todos
+    todos,
+    handleToggleTodo,
+    deleteTodos,
   }
 }

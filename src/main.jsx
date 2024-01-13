@@ -9,6 +9,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <TodosProvider>
       <TodoPage/>
     </TodosProvider>
-
   </React.StrictMode>
 )

@@ -9,8 +9,7 @@ export const TodoPage = () => {
             <h1 className="text-center">To Do's</h1>
             <hr/>
             <AddTodo/>
-            <div
-            className="col-5">
+            <div className="col-5">
                 <TodoList/>
             </div>
         </div>

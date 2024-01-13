@@ -2,9 +2,9 @@ import { useTodo } from "../hooks/useTodo"
 import { TodosContext } from "./TodosContext"
 
 export const TodosProvider = ({children}) => {
-    const {todos} = useTodo();
+    const {todos,handleToggleTodo,deleteTodos} = useTodo();
   return (  
-    <TodosContext.Provider value={{todos}}>
+    <TodosContext.Provider value={{todos, handleToggleTodo, deleteTodos}}>
         {children}
     </TodosContext.Provider>
   )
