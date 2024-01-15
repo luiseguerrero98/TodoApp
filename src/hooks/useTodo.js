@@ -21,6 +21,18 @@ export const useTodo = () => {
             payload: resp
         });
     }
+
+    const addTodo = async (newTodo) => {
+        const method = 'POST';
+        const bodyNew = {
+            task_name: newTodo
+        }
+        const resp = await getFetch(url,method,bodyNew);
+        dispatchTodo({
+            type: '[TODO] Add Todo',
+            payload: resp,
+        });
+    }
     
     const handleToggleTodo = (id) => {
         dispatchTodo({
@@ -29,9 +41,15 @@ export const useTodo = () => {
         });
     }
 
+    const handleToggleEditing = (id) => {
+        dispatchTodo({
+            type: '[TODO] Editing Todo',
+            payload: id
+        });
+    }
+
     const deleteTodos = async () => {
         const method = 'DELETE';
-        //console.log('hizo click en el boton');
         const deletedTodos = await Promise.all(
             todos.map((todo) => {
                 if(todo.checked) {
@@ -45,12 +63,26 @@ export const useTodo = () => {
             payload: deletedTodos
         });
     }
-    
-     
 
+    const updateTodo = async (todoUpdated) => {
+        const method = 'PUT';
+        const body = {
+            task_name: todoUpdated.task_name
+        }
+        const resp = await getFetch(`${url}${todoUpdated.id}`, method, body);
+        dispatchTodo({
+            type: '[TODO] Update Todo',
+            payload: resp,
+        });
+    }
+    
   return {
     todos,
     handleToggleTodo,
+    handleToggleEditing,
     deleteTodos,
+    addTodo,
+    updateTodo,
+    selectedTodos: todos.filter((todo) => todo.checked).length
   }
 }

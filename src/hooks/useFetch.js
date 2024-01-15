@@ -23,15 +23,18 @@ export const useFetch = () => {
             } else {
                 resp = await fetch(url, {
                     method: method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                     body: JSON.stringify(todo)
                 });
             }
             const data= await resp.json();
-
             setFetchState({
                 ...fetchState,
                 isLoading: false
             });
+            
             return data;
         } catch (error) {
 

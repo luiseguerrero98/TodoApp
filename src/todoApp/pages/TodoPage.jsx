@@ -6,10 +6,11 @@ export const TodoPage = () => {
   return (
     <>
         <div className="container">
-            <h1 className="text-center">To Do's</h1>
+            <h3 className="text-center mt-3 text-muted">TO DO APP</h3>
             <hr/>
             <AddTodo/>
-            <div className="col-5">
+            <hr/>
+            <div className="col-10 mx-auto">
                 <TodoList/>
             </div>
         </div>

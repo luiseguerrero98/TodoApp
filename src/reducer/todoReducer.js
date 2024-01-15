@@ -4,17 +4,29 @@ export const todoReducer = (initialState = [], action) => {
             return action.payload.map((todo) => {
                 return {
                     ...todo,
-                    checked: false
+                    checked: false,
+                    editing: false,
                 }
 
             });
 
+        case '[TODO] Add Todo':
+            return [
+                ...initialState,
+                {
+                    ...action.payload,
+                    checked: false,
+                    editing: false,
+                }
+            ]
+        
         case '[TODO] Update Todo':
             return initialState.map((todo) => {
                 if (todo.id === action.payload.id) {
                     return {
                         ...todo,
-                        task_name: action.payload.task_name
+                        task_name: action.payload.task_name,
+                        editing: !todo.editing
                     }
                 };
                 return todo;
@@ -29,6 +41,17 @@ export const todoReducer = (initialState = [], action) => {
                     }
                 }
                 return todo;
+            });
+        
+        case '[TODO] Editing Todo':
+            return initialState.map((todo) => {
+                if(todo.id === action.payload){
+                    return{
+                        ...todo,
+                        editing: !todo.editing,
+                    }
+                }
+                return todo; 
             });
 
         case '[TODO] Delete Todos':
