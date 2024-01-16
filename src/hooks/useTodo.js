@@ -23,6 +23,7 @@ export const useTodo = () => {
     }
 
     const addTodo = async (newTodo) => {
+        if(newTodo.trim().length === 0) return;
         const method = 'POST';
         const bodyNew = {
             task_name: newTodo
@@ -65,6 +66,7 @@ export const useTodo = () => {
     }
 
     const updateTodo = async (todoUpdated) => {
+        if(todoUpdated.task_name.trim().length === 0) return;
         const method = 'PUT';
         const body = {
             task_name: todoUpdated.task_name
