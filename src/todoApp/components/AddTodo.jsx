@@ -32,7 +32,7 @@ export const AddTodo = () => {
                         type='submit' 
                         className='btn btn-outline-primary align-self-center'
                         onClick={onAddNewTodo}>
-                            Agregar Todo
+                            Agregar
                         </button>
                     </div>
 

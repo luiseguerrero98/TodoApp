@@ -27,7 +27,7 @@ export const TodoList = () => {
                 onClick={() => deleteTodos()} 
                 disabled={selectedTodos === 0}
                 > 
-                    Eliminar Todos</button>
+                    Eliminar To Do's</button>
         </div>
     </>
     
