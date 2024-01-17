@@ -33,7 +33,8 @@ export const AddTodo = ({addNotification}) => {
                         <button 
                         type='submit' 
                         className='btn btn-outline-primary align-self-center'
-                        onClick={onAddNewTodo}>
+                        onClick={onAddNewTodo}
+                        disabled={inputAdd.trim().length === 0}>
                             Agregar
                         </button>
                     </div>

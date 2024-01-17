@@ -2,7 +2,7 @@ import { useEffect } from "react"
 
 export const AlertNotification = ({changeVisibility, message, hasError}) => {
     useEffect(() => {
-      setTimeout(() => changeVisibility(false), 2000);
+      setTimeout(() => changeVisibility(false), 1500);
     }, [])
     
   return (

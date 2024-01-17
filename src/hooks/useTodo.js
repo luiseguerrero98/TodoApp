@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
-import { useFetch } from "./useFetch";
-import { todoReducer } from "../reducer/todoReducer";
+import { useFetch } from "./";
+import { todoReducer } from "../reducer/";
 
 
 

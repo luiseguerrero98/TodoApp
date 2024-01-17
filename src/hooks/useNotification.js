@@ -17,7 +17,7 @@ export const useNotification = () => {
                 visible: true,
                 message: {
                     title: '¡Fallo!',
-                    text: 'Error al agregar To Do'
+                    text: 'Error al agregar'
                 }
             });
         } else {
@@ -25,7 +25,7 @@ export const useNotification = () => {
                 visible: true,
                 message: {
                     title: '¡Éxito!',
-                    text: 'To Do agregado correctamente'
+                    text: 'Agregado correctamente'
                 }
             });
         }
@@ -38,7 +38,7 @@ export const useNotification = () => {
                 visible: true,
                 message: {
                     title: '¡Fallo!',
-                    text: 'Error al eliminar To Do'
+                    text: 'Error al eliminar'
                 }
             });
         } else {
@@ -46,7 +46,7 @@ export const useNotification = () => {
                 visible: true,
                 message: {
                     title: '¡Éxito!',
-                    text: 'To Do eliminado correctamente'
+                    text: 'Eliminado correctamente'
                 }
             });
         }
@@ -59,7 +59,7 @@ export const useNotification = () => {
                 visible: true,
                 message: {
                     title: '¡Fallo!',
-                    text: 'Error al actualizar To Do'
+                    text: 'Error al actualizar'
                 }
             });  
         } else {
@@ -67,7 +67,7 @@ export const useNotification = () => {
                 visible: true,
                 message: {
                     title: '¡Éxito!',
-                    text: 'To Do actualizado correctamente'
+                    text: 'Actualizado correctamente'
                 }
             });
         }

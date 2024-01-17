@@ -1,7 +1,6 @@
 
-import { useNotification } from "../../hooks/useNotification";
-import { AddTodo } from "../components/AddTodo"
-import { TodoList } from "../components/TodoList"
+import { useNotification } from "../../hooks/";
+import { AddTodo, TodoList } from "../components/"
 
 import 'react-notifications/lib/notifications.css';
 import { useContext } from "react";
@@ -21,11 +20,11 @@ export const TodoPage = () => {
     <>
         <div className="container">
             <div className="text-center d-flex align-items-center justify-content-center">
-              <h3 className="mt-3" style={{color: " rgb(60,60,60)"}}>TO DO APP</h3>
-              <span className="icon mt-2" style={{marginLeft:'10px'}}>
+              <h3 className="mt-4" style={{color: " rgb(9, 71, 37)", fontStyle: "italic"}}>TO DO APP</h3>
+              <span className="icon mt-3" style={{marginLeft:'10px'}}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" 
                   height="30" 
-                  fill="grey" 
+                  fill="green" 
                   className="bi bi-card-checklist" 
                   viewBox="0 0 16 16">
                   <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>

@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { TodoItem } from "./TodoItem"
+import { TodoItem } from "./"
 import { TodosContext } from "../../context"
 
 export const TodoList = ({deleteNotification, updateNotification}) => {
