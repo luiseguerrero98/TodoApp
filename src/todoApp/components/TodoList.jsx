@@ -2,9 +2,18 @@ import { useContext } from "react"
 import { TodoItem } from "./TodoItem"
 import { TodosContext } from "../../context"
 
-export const TodoList = () => {
+export const TodoList = ({deleteNotification, updateNotification}) => {
 
-    const {todos, handleToggleTodo,deleteTodos,selectedTodos, handleToggleEditing, updateTodo} = useContext(TodosContext);
+    const {todos, handleToggleTodo,
+            deleteTodos,selectedTodos, 
+            handleToggleEditing, updateTodo, 
+            hasError} = useContext(TodosContext);
+    
+
+    const onDelete = () => {
+        deleteTodos();
+        deleteNotification(hasError);
+    }
   return (
     <>
         <div className="container overflow-auto align-center" style={{height: '50vh'}}>
@@ -16,7 +25,9 @@ export const TodoList = () => {
                     todo={todo} 
                     handleToggleTodo={handleToggleTodo} 
                     handleToggleEditing={handleToggleEditing}
-                    updateTodo={updateTodo}/>
+                    updateTodo={updateTodo}
+                    hasError= {hasError}
+                    updateNotification= {updateNotification}/>
             ))
             }   
             </ul>
@@ -24,7 +35,7 @@ export const TodoList = () => {
         <div className="container ms-auto mt-3 mb-3 text-end">
             <button 
                 className="btn btn-danger align-self-center" 
-                onClick={() => deleteTodos()} 
+                onClick={() => onDelete()} 
                 disabled={selectedTodos === 0}
                 > 
                     Eliminar To Do's</button>

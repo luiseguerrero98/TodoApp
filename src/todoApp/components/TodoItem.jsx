@@ -1,6 +1,6 @@
 import { useForm } from "../../hooks/useForm"
 
-export const TodoItem = ({todo, handleToggleTodo, handleToggleEditing, updateTodo}) => {
+export const TodoItem = ({todo, handleToggleTodo, handleToggleEditing, updateTodo, updateNotification, hasError}) => {
 
     const {inputItem, onInputChange, onResetForm} = useForm({
         inputItem: todo.task_name,
@@ -17,16 +17,21 @@ export const TodoItem = ({todo, handleToggleTodo, handleToggleEditing, updateTod
             id: todo.id,
             task_name: inputItem
         });
+        updateNotification(hasError);
     }
     
   return (
     <>
-        <li className="list-group-item d-flex justify-content-between">
+        <li className="list-group-item d-flex justify-content-between" style={{backgroundColor: "rgba(255,255,255,0.6)"}}>
             
             {todo.editing ? (
                 <>  
                     <form className="col-8" onSubmit={handleUpdateTodo}>
-                        <input className="form-control" name="inputItem" value={inputItem} onChange={onInputChange}/>
+                        <input className="form-control" 
+                            name="inputItem" 
+                            value={inputItem} 
+                            onChange={onInputChange}
+                            style={{backgroundColor: "rgba(255,255,255,0.2)"}}/>
                     </form>
                     <div className="col-2 d-flex jusify-content-between">
                         <button className="btn btn-danger m-1 btn-sm" onClick={() => handleCancelEditing()}>

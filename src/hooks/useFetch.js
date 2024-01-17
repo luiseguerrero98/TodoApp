@@ -29,7 +29,7 @@ export const useFetch = () => {
                     body: JSON.stringify(todo)
                 });
             }
-            const data= await resp.json();
+            const data= await resp.json();-
             setFetchState({
                 ...fetchState,
                 isLoading: false

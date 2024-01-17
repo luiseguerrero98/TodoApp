@@ -7,7 +7,7 @@ import { todoReducer } from "../reducer/todoReducer";
 export const useTodo = () => {
     const url = 'https://65a1801c600f49256fb1c07c.mockapi.io/v1/todo/';
     const [todos, dispatchTodo] = useReducer(todoReducer,[]);
-    const {getFetch} = useFetch();
+    const {getFetch, hasError} = useFetch();
 
     useEffect(() => {
         initializeTodos();
@@ -33,6 +33,7 @@ export const useTodo = () => {
             type: '[TODO] Add Todo',
             payload: resp,
         });
+
     }
     
     const handleToggleTodo = (id) => {
@@ -85,6 +86,7 @@ export const useTodo = () => {
     deleteTodos,
     addTodo,
     updateTodo,
-    selectedTodos: todos.filter((todo) => todo.checked).length
+    selectedTodos: todos.filter((todo) => todo.checked).length,
+    hasError,
   }
 }
